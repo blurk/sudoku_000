@@ -163,16 +163,16 @@ function generatePossibleNumber(rows, columns, blocks) {
 function solveGrid(possibleNumber, rows, startFromZero) {
     var solution = [];
 
-    // solve Sudoku with a backtracking algorithm
-    // Steps are:
-    //  1.  get all allowed numbers that fit in each empty cell
-    //  2.  generate all possible rows that fit in the first row depend on the allowed number list
-    //` 3.  select one row from possible row list and put it in the first row
-    //  4.  go to next row and find all possible number that fit in each cell
-    //  5.  generate all possible row fit in this row then go to step 3 until reach the last row or there aren't any possible rows left
-    //  6.  if next row hasn't any possible left then go the previous row and try the next possibility from possibility rows' list
-    //  7.  if the last row has reached and a row fit in it has found then the grid has solved
-
+    /* solve Sudoku with a backtracking algorithm
+     Steps are:
+      1.  get all allowed numbers that fit in each empty cell
+      2.  generate all possible rows that fit in the first row depend on the allowed number list
+      3.  select one row from possible row list and put it in the first row
+      4.  go to next row and find all possible number that fit in each cell
+      5.  generate all possible row fit in this row then go to step 3 until reach the last row or there aren't any possible rows left
+      6.  if next row hasn't any possible left then go the previous row and try the next possibility from possibility rows' list
+      7.  if the last row has reached and a row fit in it has found then the grid has solved
+    */ 
     var result = nextStep(0, possibleNumber, rows, solution, startFromZero);
     if (result == 1)
         return solution;
