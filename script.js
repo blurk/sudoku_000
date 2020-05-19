@@ -88,7 +88,7 @@ function solveGrid(possibleNumber, rows, startFromZero) {
       5.  generate all possible row fit in this row then go to step 3 until reach the last row or there aren't any possible rows left
       6.  if next row hasn't any possible left then go the previous row and try the next possibility from possibility rows' list
       7.  if the last row has reached and a row fit in it has found then the grid has solved
-    */
+    */ 
     var result = nextStep(0, possibleNumber, rows, solution, startFromZero);
     if (result == 1)
         return solution;
@@ -161,7 +161,6 @@ function ViewPuzzle(grid) {
     for (let i = 0; i < grid.length; i++) {
         for (let j = 0; j < grid[i].length; j++) {
             let input = table.rows[i].cells[j].getElementsByTagName('input')[0];
-            addClassToCell(table.rows[i].cells[j].getElementsByTagName('input')[0]);
             if (grid[i][j] == "0") {
                 input.value = "";
             }
@@ -230,7 +229,7 @@ function updateRemainingTable() {
 }
 
 // solve sudoku function
-// input: changeUI boolean      true to allow function to change UI
+// input: changeUI boolean true to allow function to change UI
 // output:
 //  0 when everything goes right
 //  1 when grid is already solved
@@ -253,7 +252,6 @@ function solveSudoku(changeUI) {
             var result = checkValue(puzzle[i][j], puzzle[i], columns[j], blocks[Math.floor(i / 3) * 3 + Math.floor(j / 3)], -1, -1);
             correct = correct + ((result === 2) ? 1 : 0);
             errors = errors + ((result > 2) ? 1 : 0);
-            addClassToCell(table.rows[i].cells[j].getElementsByTagName('input')[0], result > 2 ? "wrong-cell" : undefined)
         }
     }
 
@@ -331,7 +329,6 @@ window.onload = function () {
             input.onchange = function () {
 
                 //remove color from cell
-                addClassToCell(this);
 
                 // check if the new value entered is allowed
                 function checkInput(input) {
@@ -374,7 +371,7 @@ function solveButtonClick() {
         gameOn = false;
         clearInterval(intervalId);
     }
-
+    
     var result = solveSudoku(true);
     switch (result) {
         case 0:
