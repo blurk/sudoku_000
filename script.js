@@ -88,7 +88,7 @@ function solveGrid(possibleNumber, rows, startFromZero) {
       5.  generate all possible row fit in this row then go to step 3 until reach the last row or there aren't any possible rows left
       6.  if next row hasn't any possible left then go the previous row and try the next possibility from possibility rows' list
       7.  if the last row has reached and a row fit in it has found then the grid has solved
-    */ 
+    */
     var result = nextStep(0, possibleNumber, rows, solution, startFromZero);
     if (result == 1)
         return solution;
@@ -371,7 +371,7 @@ function solveButtonClick() {
         gameOn = false;
         clearInterval(intervalId);
     }
-    
+
     var result = solveSudoku(true);
     switch (result) {
         case 0:
