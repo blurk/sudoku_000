@@ -1,9 +1,6 @@
 // grid variable
 let table;
 
-// game number
-let gameId = 0;
-
 // puzzle grid
 let puzzle = [];
 
@@ -21,6 +18,7 @@ let intervalId;
 let gameOn = false;
 
 // return columns from a row grid
+
 function getColumns(grid) {
     var result = ["", "", "", "", "", "", "", "", ""];
     for (var i = 0; i < 9; i++) {
@@ -55,7 +53,6 @@ function replaceCharAt(string, index, char) {
 // get allowed numbers that can be placed in each cell
 function generatePossibleNumber(rows, columns, blocks) {
     let psb = [];
-
     // for each cell get numbers that are not viewed in a row, column or block
     // if the cell is not empty then, allowed number is the number already exist in it
     for (var i = 0; i < 9; i++) {
@@ -73,6 +70,7 @@ function generatePossibleNumber(rows, columns, blocks) {
             }
         }
     }
+    console.log(psb);
     return psb;
 }
 
