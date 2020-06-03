@@ -1,7 +1,5 @@
 // grid variable
 let table;
-//Sweet Alert
-const Swal = require('sweetalert2');
 
 // puzzle grid
 let puzzle = [];
