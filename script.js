@@ -1,5 +1,7 @@
 // grid variable
 let table;
+//Sweet Alert
+const Swal = require('sweetalert2');
 
 // puzzle grid
 let puzzle = [];
@@ -366,16 +368,16 @@ function solveButtonClick() {
     var result = solveSudoku(true);
     switch (result) {
         case 0:
-            alert("SOLVED");
+            Swal.fire('SOLVED');
             break;
         case 1:
-            alert("This grid is already solved")
+            Swal.fire("This grid is already solved")
             break;
         case 2:
-            alert("This grid can't be solved because of an invalid input")
+            Swal.fire("This grid can't be solved because of an invalid input")
             break;
         case 3:
-            alert("this grid has no solution");
+            Swal.fire("this grid has no solution");
             break;
     }
 }
