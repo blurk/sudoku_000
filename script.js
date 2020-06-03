@@ -24,12 +24,6 @@ function getColumns(grid) {
     for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++)
             result[j] += grid[i][j];
-        /*try {
-            result[j] += grid[i][j];
-        } catch (err) {
-            alert(grid);
-        }*/
-
     }
     return result;
 }
@@ -70,7 +64,6 @@ function generatePossibleNumber(rows, columns, blocks) {
             }
         }
     }
-    console.log(psb);
     return psb;
 }
 
@@ -369,7 +362,7 @@ function solveButtonClick() {
         gameOn = false;
         clearInterval(intervalId);
     }
-
+    
     var result = solveSudoku(true);
     switch (result) {
         case 0:
