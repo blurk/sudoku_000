@@ -326,7 +326,13 @@ window.onload = function () {
                     if (input.value[0] < '1' || input.value[0] > '9') {
                         if (input.value != "?" && input.value != "؟") {
                             input.value = "";
-                            alert("only numbers [1-9] and question mark '?' are allowed!!");
+                            Swal.fire({
+                                title: 'Lỗi',
+                                text: 'Chỉ được nhập số từ 1 đến 9',
+                                icon: 'warning',
+                                confirmButtonText: 'Tiếp tục',
+                                showConfirmButton: true
+                              });
                             input.focus()
                         }
                     }
@@ -366,16 +372,38 @@ function solveButtonClick() {
     var result = solveSudoku(true);
     switch (result) {
         case 0:
-            Swal.fire('SOLVED');
+            Swal.fire({
+                title: 'Giải thành công',
+                icon: 'success',
+                confirmButtonText: 'Tiếp tục',
+                showConfirmButton: true
+              });
             break;
         case 1:
-            Swal.fire("This grid is already solved")
+            Swal.fire({
+                title: 'Bảng đã được giải!',
+                icon: 'warning',
+                confirmButtonText: 'Tiếp tục',
+                showConfirmButton: true
+              });
             break;
         case 2:
-            Swal.fire("This grid can't be solved because of an invalid input")
+            Swal.fire({
+                title: 'Lỗi',
+                text: 'Bảng không thể giải vì nhập sai dữ liệu',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                showConfirmButton: true
+              });
             break;
         case 3:
-            Swal.fire("this grid has no solution");
+            Swal.fire({
+                title: 'Lỗi',
+                text: 'Không thể giải bảng sudoku',
+                icon: 'error',
+                confirmButtonText: 'Tiếp tục',
+                showConfirmButton: true
+              });
             break;
     }
 }
